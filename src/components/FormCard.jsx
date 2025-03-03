@@ -37,7 +37,7 @@ export const FormCard = () => {
   // };
 
   const handleSubmit = () => {
-    window.location.href = `http://157.230.38.147:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+    window.location.href = `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
   };
 
   return (

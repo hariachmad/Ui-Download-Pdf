@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { FormCard } from "../components/formCard";
+import { FormCard } from "../components/FormCard";
+import { AuthContext } from "../context/authContext";
 
 export const Main = () => {
   const {user} = useContext(AuthContext);

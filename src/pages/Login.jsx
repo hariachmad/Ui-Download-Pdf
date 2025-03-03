@@ -13,23 +13,22 @@ export const Login = () => {
     e.preventDefault();
 
     try{
-        const response = await fetch("http://157.230.38.147/:4000/auth/login", {
+        const response = await fetch("http://localhost:4000/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ idk, password }),
           });
-      
           const data = await response.json();
-      
-          if (response.ok) {
-            console.log("data: ", data);
+          
+          
+          if (response.ok) {            
             login(data["access_token"], data["user"],data["idk"]);
             navigate("/main");
           } else {
             alert("Login gagal");
           }
     }catch(err){
-        alert("Login gagal");
+        alert("Login gagal "+err);
     }   
     
   };
