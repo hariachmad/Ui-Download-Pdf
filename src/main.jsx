@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App.jsx";
 import React from "react";
 import { AuthProvider } from "./context/authContext.jsx";
+import { DateProvider } from "./context/DateContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <StrictMode>
-      <App />
-    </StrictMode>
+    <DateProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </DateProvider>
   </AuthProvider>
 );

@@ -3,9 +3,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../context/authContext";
 import { DateRangePickerComp } from "./DateRangePicker";
+import { DateContext } from "../context/DateContext";
 
 export const FormCard = () => {
   const { idk } = useContext(AuthContext);
+  const { dateRange, setDateRange} = useContext(DateContext);
   const enumMonth = [
     "jan",
     "feb",
@@ -21,21 +23,21 @@ export const FormCard = () => {
     "des",
   ];
 
-  const [month, setMonth] = useState(enumMonth[new Date().getMonth()]);
+  // const [month, setMonth] = useState(enumMonth[new Date().getMonth()]);
   // const [idk_, setIdk] = useState(null);
-  const [selectedMonth, setSelectedMonth] = useState(new Date());
+  // const [selectedMonth, setSelectedMonth] = useState(new Date());
 
-  const handleMonthChange = (month) => {
-    setSelectedMonth(month);
-    setMonth(enumMonth[month.getMonth()]);
-  };
+  // const handleMonthChange = (month) => {
+  //   setSelectedMonth(month);
+  //   setMonth(enumMonth[month.getMonth()]);
+  // };
 
   // const handleIdkChange = (idk) => {
   //   setIdk(idk);
   // };
 
   const handleSubmit = () => {
-    window.location.href = `http://157.230.38.147:4000/penerimaan-getah/${month}/idk/${idk}`;
+    window.location.href = `http://157.230.38.147:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
   };
 
   return (
