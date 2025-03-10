@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../context/authContext";
 import { DateRangePickerComp } from "./DateRangePicker";
 import { DateContext } from "../context/DateContext";
+import axios from "axios";
 
 export const FormCard = () => {
   const { idk } = useContext(AuthContext);
@@ -24,7 +25,22 @@ export const FormCard = () => {
   ];
 
   const handleSubmit = () => {
-    window.location.href = `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+    try {
+      axios
+        .get(
+          `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
+        )
+        .then((response) => {
+          window.location.href = `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+        })
+        .catch((err) => {
+          console.error("Error", err);
+          alert("Data tidak ada. Silakan coba lagi.");
+        });
+    } catch (err) {
+      console.error("Error", err);
+      alert("Data tidak ada. Silakan coba lagi.");
+    }
   };
 
   return (
@@ -50,7 +66,7 @@ export const FormCard = () => {
             <p className="my-5 text-blue-500">{`${dateRange.startDate}     -   ${dateRange.endDate}`}</p>
             <button
               onClick={handleSubmit}
-              className="bg-blue-500 text-white mt-5 font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+              className="bg-blue-500 text-white mt-5   font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
             >
               Download PDF
             </button>
