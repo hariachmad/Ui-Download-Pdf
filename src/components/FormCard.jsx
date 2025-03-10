@@ -28,10 +28,10 @@ export const FormCard = () => {
     try {
       axios
         .get(
-          `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
+          `http://157.230.38.147:5173:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
         )
         .then((response) => {
-          window.location.href = `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+          window.location.href = `http://157.230.38.147:5173:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
         })
         .catch((err) => {
           console.error("Error", err);
