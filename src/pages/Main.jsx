@@ -3,7 +3,7 @@ import { FormCard } from "../components/FormCard";
 import { AuthContext } from "../context/authContext";
 
 export const Main = () => {
-  const {user} = useContext(AuthContext);
+  const {user} = useContext(AuthContext)  ;
   return (
     <>
       <div className="bg-gradient-to-r from-green-950 to-green-200 h-screen w-screen">

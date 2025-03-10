@@ -7,7 +7,7 @@ import { DateContext } from "../context/DateContext";
 
 export const FormCard = () => {
   const { idk } = useContext(AuthContext);
-  const { dateRange, setDateRange} = useContext(DateContext);
+  const { dateRange, setDateRange } = useContext(DateContext);
   const enumMonth = [
     "jan",
     "feb",
@@ -23,19 +23,6 @@ export const FormCard = () => {
     "des",
   ];
 
-  // const [month, setMonth] = useState(enumMonth[new Date().getMonth()]);
-  // const [idk_, setIdk] = useState(null);
-  // const [selectedMonth, setSelectedMonth] = useState(new Date());
-
-  // const handleMonthChange = (month) => {
-  //   setSelectedMonth(month);
-  //   setMonth(enumMonth[month.getMonth()]);
-  // };
-
-  // const handleIdkChange = (idk) => {
-  //   setIdk(idk);
-  // };
-
   const handleSubmit = () => {
     window.location.href = `http://localhost:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
   };
@@ -43,7 +30,9 @@ export const FormCard = () => {
   return (
     <>
       <div className="rounded overflow-hidden shadow-lg w-[70%] h-[75vh] bg-gray-50 flex flex-col items-center">
-        <div className="mt-[1rem] mb-2.5 text-2xl font-bold">DOWNLOAD PDF REPORT</div>
+        <div className="mt-[1rem] mb-2.5 text-2xl font-bold">
+          DOWNLOAD PDF REPORT
+        </div>
         <div className="grid grid-cols-3 mt-5 gap-12">
           <div className="col-span-2">
             <DateRangePickerComp />
@@ -58,9 +47,10 @@ export const FormCard = () => {
                 value={idk}
               />
             </div>
+            <p className="my-5 text-blue-500">{`${dateRange.startDate}     -   ${dateRange.endDate}`}</p>
             <button
               onClick={handleSubmit}
-              className="bg-blue-500 text-white mt-20 font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+              className="bg-blue-500 text-white mt-5 font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
             >
               Download PDF
             </button>
