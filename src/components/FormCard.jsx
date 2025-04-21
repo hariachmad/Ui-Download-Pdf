@@ -5,6 +5,7 @@ import { AuthContext } from "../context/authContext";
 import { DateRangePickerComp } from "./DateRangePicker";
 import { DateContext } from "../context/DateContext";
 import axios from "axios";
+import { SelectTpg } from "./SelectTpg";
 
 export const FormCard = () => {
   const { idk } = useContext(AuthContext);
@@ -28,10 +29,13 @@ export const FormCard = () => {
     try {
       axios
         .get(
-          `http://157.230.38.147:5173:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
+          import.meta.env.VITE_BACKEND_URL +
+            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
         )
         .then((response) => {
-          window.location.href = `http://157.230.38.147:5173:4000/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+          window.location.href =
+            import.meta.env.VITE_BACKEND_URL +
+            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
         })
         .catch((err) => {
           console.error("Error", err);
@@ -45,9 +49,12 @@ export const FormCard = () => {
 
   return (
     <>
-      <div className="rounded overflow-hidden shadow-lg w-[70%] h-[75vh] bg-gray-50 flex flex-col items-center">
+      <div className="rounded overflow-hidden shadow-lg w-[70%] h-[80vh] bg-gray-50 flex flex-col items-center">
         <div className="mt-[1rem] mb-2.5 text-2xl font-bold">
           DOWNLOAD PDF REPORT
+        </div>
+        <div className="w-full ml-25">
+          <SelectTpg></SelectTpg>
         </div>
         <div className="grid grid-cols-3 mt-5 gap-12">
           <div className="col-span-2">

@@ -7,13 +7,12 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log("idk: ", idk, "password: ", password);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try{
-        const response = await fetch("http://157.230.38.147:5173:4000/auth/login", {
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ idk, password }),

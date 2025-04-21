@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { FormCard } from "../components/FormCard";
 import { AuthContext } from "../context/authContext";
+import { SelectTpg } from "../components/SelectTpg";
 
 export const Main = () => {
-  const {user} = useContext(AuthContext)  ;
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       <div className="bg-gradient-to-r from-green-950 to-green-200 h-screen w-screen">
