@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { TpgContext } from "../context/tpgContext";
 import { DateContext } from "../context/DateContext";
 import moment from "moment";
+import { SelectedTpgContext } from "../context/selectedTpgContext";
 
 export const SelectTpg = () => {
-  const { tpg } = useContext(TpgContext);
+  const { tpg, setTpg } = useContext(TpgContext);
   const { dateRange, setDateRange } = useContext(DateContext);
+  const {selectedTpg,setSelectedTpg} = useContext(SelectedTpgContext);
 
   const getMonthStartDate = () => {
     const year = new Date(dateRange.startDate).getFullYear();
@@ -30,6 +32,10 @@ export const SelectTpg = () => {
     const month = new Date(dateRange.startDate).getMonth();
     return new Date(year, month + 1, 0);
   };
+
+  const handleTpgChange = (event)=>{
+    setSelectedTpg(event.target.value);
+  }
 
   const handlePeriodeChange = (event) => {
     switch (event.target.value) {
@@ -69,6 +75,7 @@ export const SelectTpg = () => {
                 PILIH TPG :
               </label>
               <select
+                onChangeCapture={handleTpgChange}
                 id="tpg"
                 className="bg-white h-9 text-gray-500 shadow-2xs mt-1 w-full px-2 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
               >
@@ -76,7 +83,7 @@ export const SelectTpg = () => {
                   -
                 </option>
                 {tpg.map((data, index) => (
-                  <option value={data.namaTpg} key={index}>
+                  <option value={data.kodeTpg} key={index}>
                     {data.namaTpg}
                   </option>
                 ))}

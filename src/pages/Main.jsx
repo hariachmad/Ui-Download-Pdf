@@ -1,10 +1,34 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormCard } from "../components/FormCard";
 import { AuthContext } from "../context/authContext";
 import { SelectTpg } from "../components/SelectTpg";
+import { TpgContext } from "../context/tpgContext";
+import axios from "axios";
 
 export const Main = () => {
-  const { user } = useContext(AuthContext);
+  const { user, npk } = useContext(AuthContext);
+  const { setTpg } = useContext(TpgContext);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `http://157.230.38.147:4000/tpg/${npk}`,
+        {
+          headers: {
+            Authorization: `Bearer parametrik`,
+          },
+        }
+      );
+      console.log(response.data);
+      setTpg(response.data);
+    } catch (error) {
+      console.error("Error fetching data : ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>

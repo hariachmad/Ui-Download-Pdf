@@ -6,10 +6,15 @@ import { DateRangePickerComp } from "./DateRangePicker";
 import { DateContext } from "../context/DateContext";
 import axios from "axios";
 import { SelectTpg } from "./SelectTpg";
+import { SelectedTpgContext } from "../context/selectedTpgContext";
 
 export const FormCard = () => {
+
   const { idk } = useContext(AuthContext);
   const { dateRange, setDateRange } = useContext(DateContext);
+  const {selectedTpg} = useContext(SelectedTpgContext);
+
+  console.log(selectedTpg);
   const enumMonth = [
     "jan",
     "feb",
@@ -30,12 +35,12 @@ export const FormCard = () => {
       axios
         .get(
           import.meta.env.VITE_BACKEND_URL +
-            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`
+            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}&kodeTpg=${selectedTpg}`
         )
         .then((response) => {
           window.location.href =
             import.meta.env.VITE_BACKEND_URL +
-            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}`;
+            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}&kodeTpg=${selectedTpg}`;
         })
         .catch((err) => {
           console.error("Error", err);

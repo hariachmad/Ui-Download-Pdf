@@ -5,15 +5,18 @@ import App from "./App.jsx";
 import { AuthProvider } from "./context/authContext.jsx";
 import { DateProvider } from "./context/DateContext.jsx";
 import { TpgProvider } from "./context/tpgContext.jsx";
+import { SelectedTpgProvider } from "./context/SelectedTpgContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <TpgProvider>
+  <SelectedTpgProvider>
     <AuthProvider>
       <DateProvider>
-        <StrictMode>
-          <App />
-        </StrictMode>
+        <TpgProvider>
+          <StrictMode>
+            <App />
+          </StrictMode>
+        </TpgProvider>
       </DateProvider>
     </AuthProvider>
-  </TpgProvider>
+  </SelectedTpgProvider>
 );

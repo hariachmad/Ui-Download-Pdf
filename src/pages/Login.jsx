@@ -3,9 +3,9 @@ import { AuthContext } from "../context/authContext";
 import { useNavigate } from "react-router";
 
 export const Login = () => {
-  const [idk, setIdk] = useState("");
+  const [idk, setIdkNonContext] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -21,7 +21,7 @@ export const Login = () => {
           
           
           if (response.ok) {            
-            login(data["access_token"], data["user"],data["idk"]);
+            login(data["access_token"], data["user"],data["idk"],data["npk"]);
             navigate("/main");
           } else {
             alert("Login gagal");
@@ -51,7 +51,7 @@ export const Login = () => {
       inputIdk = document.getElementById("idk");
       inputIdk.value = value.slice(0, -1);
     }
-    setIdk(event.target.value);
+    setIdkNonContext(event.target.value);
   }
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-950 to-green-200 flex flex-col justify-center">
