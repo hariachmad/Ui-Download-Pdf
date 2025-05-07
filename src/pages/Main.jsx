@@ -4,6 +4,7 @@ import { AuthContext } from "../context/authContext";
 import { SelectTpg } from "../components/SelectTpg";
 import { TpgContext } from "../context/tpgContext";
 import axios from "axios";
+import { Logout } from "../components/Logout";
 
 export const Main = () => {
   const { user, npk } = useContext(AuthContext);
@@ -33,9 +34,12 @@ export const Main = () => {
   return (
     <>
       <div className="bg-gradient-to-r from-green-950 to-green-200 h-screen w-screen">
-        <section className="header rounded-b-md h-[15vh] bg-white shadow-2xl flex justify-between items-center px-5 ">
+        <section className="header rounded-b-sm h-[15vh] bg-white shadow-2xl flex justify-between items-center px-5 ">
           <img className="w-60 h-15" src="/logo-perhutani.png"></img>
           <h2 className="absolute right-8 top-15">Selamat Datang, {user}</h2>
+          <div className="mb-10">
+            <Logout></Logout>
+          </div>
         </section>
         <section className="content flex justify-center mt-[20px]">
           <FormCard></FormCard>

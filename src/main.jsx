@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { AuthProvider } from "./context/authContext.jsx";
 import { DateProvider } from "./context/DateContext.jsx";
 import { TpgProvider } from "./context/tpgContext.jsx";
-import { SelectedTpgProvider } from "./context/SelectedTpgContext.jsx";
+import { SelectedTpgProvider } from "./context/selectedTpgContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <SelectedTpgProvider>
