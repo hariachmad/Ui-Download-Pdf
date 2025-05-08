@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { FormCard } from "../components/FormCard";
 import { AuthContext } from "../context/AuthContext";
 import { SelectTpg } from "../components/SelectTpg";
-import { TpgContext } from "../context/tpgContext";
+import { TpgContext } from "../context/tpgContext.jsx.bal";
 import axios from "axios";
 import { Logout } from "../components/Logout";
 
