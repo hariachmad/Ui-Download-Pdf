@@ -1,5 +1,5 @@
 import { useContext} from "react";
-import { TpgContext } from "../context/tpgContext.jsx.bal";
+import { TpgContext } from "../context/TpgContext.jsx";
 import { DateContext } from "../context/DateContext";
 import moment from "moment";
 import { SelectedTpgContext } from "../context/selectedTpgContext";
