@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios';
-import { AuthContext } from "./authContext";
+import { AuthContext } from "./AuthContext";
 
 export const TpgContext = createContext();
 

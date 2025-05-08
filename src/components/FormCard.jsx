@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../context/AuthContext";
 import { DateRangePickerComp } from "./DateRangePicker";
 import { DateContext } from "../context/DateContext";
 import axios from "axios";

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { FormCard } from "../components/FormCard";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../context/AuthContext";
 import { SelectTpg } from "../components/SelectTpg";
 import { TpgContext } from "../context/tpgContext";
 import axios from "axios";

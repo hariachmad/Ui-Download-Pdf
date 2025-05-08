@@ -2,7 +2,7 @@ import { Login } from "./pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Main } from "./pages/Main";
 import { useContext } from "react";
-import { AuthContext } from "./context/authContext";
+import { AuthContext } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
