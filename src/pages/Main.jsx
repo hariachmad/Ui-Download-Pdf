@@ -13,7 +13,7 @@ export const Main = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://157.230.38.147:4000/tpg/${npk}`,
+        import.meta.env.VITE_BACKEND_URL+`/tpg/${npk}`,
         {
           headers: {
             Authorization: `Bearer parametrik`,
