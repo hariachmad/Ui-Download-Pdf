@@ -61,7 +61,7 @@ export const Login = () => {
       ></img>
       <div className="Container ml-[100px] mt-[-30px]">
         <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-xl overflow-hidden">
-          <div className="w-full flex flex-col items-center justify-center pl-1"><img className="!max-w-full !max-h-full rounded-md" src="Register-Background.jpg"></img></div>
+          <div className="w-full h-auto flex flex-col items-center justify-center px-2 py-2"><img className="w-full h-full object-cover rounded-md" src="Register-Background.jpg"></img></div>
           <div className="w-full lg:w-1/2 py-16 px-12">
             <h2 className="text-4xl mb-10 font-bold">Login</h2>
             <form onSubmit={handleLogin}>
