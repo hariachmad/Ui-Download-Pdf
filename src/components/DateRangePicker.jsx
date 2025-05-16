@@ -11,6 +11,8 @@ export const DateRangePickerComp = () => {
 
   const handleSelect = (ranges) => {
     const { startDate,endDate } = ranges.range1; 
+
+
     setDateRange({
         startDate : moment(startDate).format('YYYY-MM-DD').toString(),
         endDate : moment(endDate).format('YYYY-MM-DD').toString()

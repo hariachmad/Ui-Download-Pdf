@@ -7,12 +7,16 @@ import { DateContext } from "../context/DateContext";
 import axios from "axios";
 import { SelectTpg } from "./SelectTpg";
 import { SelectedTpgContext } from "../context/selectedTpgContext";
+import moment from "moment";
 
 export const FormCard = () => {
-
   const { idk } = useContext(AuthContext);
   const { dateRange, setDateRange } = useContext(DateContext);
-  const {selectedTpg} = useContext(SelectedTpgContext);
+  const { selectedTpg } = useContext(SelectedTpgContext);
+  console.log("dateRange.startDate: ", dateRange.startDate);
+  console.log("dateRange.endDate: ", dateRange.endDate);
+  console.log(moment(dateRange.startDate).format("YYYY-MM-DD").toString());
+  console.log(moment(dateRange.endDate).format("YYYY-MM-DD").toString());
 
   console.log(selectedTpg);
   const enumMonth = [
@@ -35,12 +39,12 @@ export const FormCard = () => {
       axios
         .get(
           import.meta.env.VITE_BACKEND_URL +
-            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}&kodeTpg=${selectedTpg}`
+            `/penerimaan-getah/pdf?startDate=${moment(dateRange.startDate).format("YYYY-MM-DD").toString()}&endDate=${moment(dateRange.endDate).add(1,'days').format("YYYY-MM-DD").toString()}&idk=${idk}&kodeTpg=${selectedTpg}`
         )
         .then((response) => {
           window.location.href =
             import.meta.env.VITE_BACKEND_URL +
-            `/penerimaan-getah/pdf?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&idk=${idk}&kodeTpg=${selectedTpg}`;
+            `/penerimaan-getah/pdf?startDate=${moment(dateRange.startDate).format("YYYY-MM-DD").toString()}&endDate=${moment(dateRange.endDate).add(1,'days').format("YYYY-MM-DD").toString()}&idk=${idk}&kodeTpg=${selectedTpg}`;
         })
         .catch((err) => {
           console.error("Error", err);
