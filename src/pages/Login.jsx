@@ -27,7 +27,7 @@ export const Login = () => {
             alert("Login gagal");
           }
     }catch(err){
-        alert("Login gagal "+err);
+        alert("Login gagal ");
     }   
     
   };
